@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插槽的使用</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div>
+        <h4>插槽的基本使用:封装共性,保留不同</h4>
+    </div>
+    <div>
+        <slot-demo></slot-demo>
+        <slot-demo><button>加油</button></slot-demo>
+    </div>
+</div>
+
+<hr>
+<div id="app1">
+    <div>
+        <h4>具名插槽:多个插槽的时候,根据插槽内容可以准确替换某个插槽</h4>
+    </div>
+    <div >
+        <slot-demo-1></slot-demo-1>
+        <slot-demo-1><button slot="left">改变左边插槽</button></slot-demo-1>
+        <slot-demo-1><button slot="mid">改变中间插槽</button></slot-demo-1>
+        <slot-demo-1><button slot="right">改变右边插槽</button></slot-demo-1>
+    </div>
+</div>
+
+<hr>
+<div id="app2">
+    <div>
+        <h4>作用域:<br>
+            父级模板中的作用域都是在父级作用域中进行编译的;子模板里的内容都是在子级作用域中编译的.<br>
+            作用域插槽:<br>
+            让插槽内容能够访问子组件才有的数据.子组件无法访问父组件中data数据
+        </h4>
+    </div>
+    <div>
+        <!--current-user是子组件,app2是父组件-->
+        <current-user></current-user>
+        <current-user>
+            <!--2.5以下必须使用template模板,2.5以上可以不需要使用-->
+            <!--slotprops表示引用子组件绑定的数据,其中datas为子组件中的属性名称,要和子组件中定义的名称一致-->
+            <template slot-scope="slotprops">
+                <span v-for="xx in slotprops.datas">{{xx}}-</span>
+            </template>
+        </current-user>
+    </div>
+</div>
+
+<template id="slot-demo">
+    <!--在定义组件中要声明一个root节点,就是div元素-->
+    <div>
+        <h1>{{msg}}</h1>
+        <span>{{context}}</span>
+        <!--在slot中声明默认内容-->
+        <slot>{{defaultMsg}}</slot>
+    </div>
+</template>
+
+<template id="slot-demo-1">
+    <div>
+    <slot name="left"><span>左边插槽</span></slot>
+    <slot name="mid"><span>中间插槽</span></slot>
+    <slot name="right"><span>右边插槽</span></slot>
+    <br>
+    </div>
+</template>
+
+<template id="slot-demo-2">
+    <div>
+        <!--将its绑定到data(名字随便取)上,然后可以在父组件中使用-->
+        <slot :datas="its">
+        <ul>
+            <li v-for="it in its">{{it}}</li>
+        </ul>
+        </slot>
+    </div>
+</template>
+
+</body>
+<script>
+//作用:封装共性,保留不同!
+var vm = new Vue({
+        el:"#app",
+        components:{
+            "slot-demo":{
+                template:"#slot-demo",
+                data: function () {
+                    return{
+                        msg:"hello vue !",
+                        context:"just do it.",
+                        defaultMsg:"加油!"
+                    }
+                }
+            }
+        }
+    });
+
+var vm1 = new Vue({
+    el:"#app1",
+    components: {
+        "slot-demo-1":{
+            template: "#slot-demo-1"
+        }
+    }
+});
+
+var vm2 = new Vue({
+    el:"#app2",
+    components:{
+        "current-user":{
+            template:"#slot-demo-2",
+            data:function () {
+                return {
+                    its:["js","java","python","go","..."]
+                }
+            }
+        }
+    }
+});
+
+</script>
+</html>

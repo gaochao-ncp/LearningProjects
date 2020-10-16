@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for的使用</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<ul id="example-1">
+    <div>
+        我们可以用v-for指令基于一个数组来渲染一个列表。v-for指令需要使用 item in items 形式的特殊语法，其中items是源数据数组，而item则是被迭代的数组元素的别名。
+    </div>
+    <div>
+        <li v-for="item of items" :key="item.message">
+            {{ item.message }}
+        </li>
+    </div>
+
+    <hr>
+    <div>
+        在v-for块中，我们可以访问所有父作用域的property。v-for还支持一个可选的第二个参数，即当前项的索引。
+    </div>
+    <div>
+        <li v-for="(item,index) in items" :key="item.message">
+            {{index}}-{{ item.message }}
+        </li>
+    </div>
+
+    <hr>
+    <div>
+        使用v-for遍历对象.第一个参数为属性值;第二个属性为属性名;第三个属性为属性下标. 遍历数组只支持下标.
+    </div>
+    <div>
+        <li v-for="(value,key,index) in book">
+            {{index}}-{{key}}-{{value}}
+        </li>
+    </div>
+
+    <hr>
+    <div>
+        遍历练习
+    </div>
+    <div>
+        <li v-for="(family,index) in families" :key="family.id">
+            {{index}}-{{family.id}}-{{family.age}}-{{family.name}}
+        </li>
+
+    </div>
+
+    <hr>
+    <div>
+        <h1>显示过滤,排序后的结果</h1>
+        有时，我们想要显示一个数组经过过滤或排序后的版本，而不实际变更或重置原始数据。在这种情况下，可以创建一个计算属性，来返回过滤或排序后的数组。
+    </div>
+    <div>
+        <li v-for="n in evenNumbers">{{n}}</li>
+    </div>
+    <div>
+        在计算属性不适用的情况下 (例如，在嵌套 v-for 循环中) 你可以使用一个方法：
+    </div>
+    <div>
+        <ul v-for="set in sets">
+            <li v-for="n in even(set)">
+                {{n}}
+            </li>
+        </ul>
+
+    </div>
+
+</ul>
+
+</body>
+<script>
+    var vm = new Vue({
+        el : "#example-1",
+        data: {
+            items:[
+                {message:'Foo'},
+                {message: 'Bar'}
+            ],
+            book:{
+                name : "三国演义",
+                author:"罗贯中",
+                price:33.3,
+                sales:100
+            },
+            families:[
+                {id:1,name:"高潮",age:26},
+                {id:2,name:"高宁",age:13},
+                {id:3,name:"佘恬",age:25},
+            ],
+            numbers:[1,2,3,4,5],
+            sets:[[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]]
+        },
+        computed:{
+            evenNumbers:function () {
+                return this.numbers.filter(function (number) {
+                    return number%2===0;
+
+                })
+            }
+        },
+        methods:{
+            even:function (s) {
+                return s.filter(function (number) {
+                    return number%2===0;
+             })
+            }
+        }
+    });
+
+</script>
+</html>

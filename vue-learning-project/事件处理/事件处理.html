@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue事件处理练习@click html</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+<div id="example-1">
+    <p>js代码写在click指令里面</p>
+    <button @click="counter+=1">Add 1</button>
+    <p>The button above has been clicked {{ counter }} times.</p>
+    <hr>
+    <p>js代码写在methods方法里面</p>
+    <button @click="greet">Greet</button>
+    <hr>
+    <p>内联处理器</p>
+    <button @click="say('Hi')">Say Hi</button>
+    <button @click="say('Hello')">Say Hello</button>
+</div>
+</body>
+<script type="text/javascript" >
+    var vm = new Vue({
+       el:"#example-1",
+       data:{
+           counter:0,
+           name:"vue"
+       },
+        methods:{
+           "greet":function () {
+                // `this` 在方法里指向当前 Vue 实例
+               alert('Hello ' + this.name + '!')
+               // `event` 是原生 DOM 事件
+               if (event) {
+                   alert(event.target.tagName)
+               }
+           },
+            "say":function (str) {
+               alert("say "+ str +"!");
+            }
+        }
+    });
+</script>
+</html>

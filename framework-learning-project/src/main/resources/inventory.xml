@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<inventory>
+    <book year="2000">
+        <title>Snow Crash</title>
+        <author>Neal Stevenson</author>
+        <publisher>Spectra</publisher>
+        <isbn>055338</isbn>
+        <price>14.95</price>
+    </book>
+
+    <book year="2005">
+        <title>Burning Tower</title>
+        <author>Larry Niven</author>
+        <publisher>Jerry</publisher>
+        <isbn>07735</isbn>
+        <price>5.95</price>
+    </book>
+
+    <book year="1995">
+        <title>Zodiac</title>
+        <author>Neal Stevenson</author>
+        <publisher>Spectra</publisher>
+        <isbn>055338</isbn>
+        <price>7.5</price>
+    </book>
+
+    <person age="26">
+        <name>高潮</name>
+        <work>it</work>
+        <live>广州</live>
+    </person>
+
+    <person age="25">
+        <name>佘恬</name>
+        <work>文员</work>
+        <live>云溪</live>
+    </person>
+
+    <person age="13">
+        <name>高宁</name>
+        <work>student</work>
+        <live>岳阳</live>
+    </person>
+
+</inventory>

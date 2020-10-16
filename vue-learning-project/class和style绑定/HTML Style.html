@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定HTML Style</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div :style="{ color: activeColor, fontSize: fontSize + 'px' }" id="cl">
+    v-bind:style 的对象语法十分直观——看着非常像 CSS，但其实是一个 JavaScript 对象。CSS property 名可以用驼峰式 (camelCase) 或短横线分隔 (kebab-case，记得用引号括起来) 来命名：
+</div>
+<hr>
+<div :style="styleObject" id="c2">
+    直接绑定到一个样式对象通常更好
+</div>
+<hr>
+<div :style="[baseStyles,overridingStyles]" id="c3">
+    数组写法
+</div>
+<hr>
+
+</body>
+<script>
+    var vm = new Vue({
+        el : "#cl",
+        data: {
+            activeColor: 'red',
+            fontSize: 16,
+        }
+    });
+
+    var vm1 = new Vue({
+        el : "#c2",
+        data: {
+            styleObject:{
+                color:'#00F',
+                fontSize: '13px'
+
+            }
+        }
+    });
+
+    var vm2 = new Vue({
+        el : "#c3",
+        data: {
+            baseStyles: "color:'#F00' ",
+            overridingStyles: "fontSize: '13px'"
+        }
+    })
+
+
+</script>
+</html>

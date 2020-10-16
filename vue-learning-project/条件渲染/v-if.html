@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if的使用</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="if">
+    <h1 v-if="type === 'A'">type is A</h1>
+    <h1 v-else-if="type === 'B'"> type is B</h1>
+    <h1 v-else-if="type === 'C'">type is C</h1>
+    <h1 v-else>Oh no 😢 type is not A B C is {{type}}</h1>
+
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address">
+    </template>
+</div>
+
+<div>
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address">
+    </template>
+</div>
+
+</body>
+<script>
+    var vm = new Vue({
+        el : "#if",
+        data: {
+            // 只有表达式为true的时候才显示if中的内容,否则显示else中的内容
+            type: 'A',
+            loginType:'username'
+        }
+    });
+
+
+
+
+</script>
+</html>

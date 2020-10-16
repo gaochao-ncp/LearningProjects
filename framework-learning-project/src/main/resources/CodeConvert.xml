@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--src 是esb规范的，dest 是第三方需求的-->
+<CodeConvert>
+    <enums name="INDUSTRY_CODE">
+        <system name="010208">
+            <enum src="A051" dest="A"/>
+            <enum src="B129" dest="B"/>
+            <enum src="C349" dest="C"/>
+            <enum src="D442" dest="D"/>
+            <enum src="E471" dest="E"/>
+            <enum src="F521" dest="F"/>
+            <enum src="G541" dest="G"/>
+            <enum src="H621" dest="H"/>
+            <enum src="O802" dest="I"/>
+            <enum src="J694" dest="J"/>
+            <enum src="K701" dest="K"/>
+            <enum src="M731" dest="M"/>
+            <enum src="N781" dest="N"/>
+            <enum src="O799" dest="O"/>
+            <enum src="P829" dest="P"/>
+            <enum src="Q831" dest="Q"/>
+            <enum src="R894" dest="R"/>
+            <enum src="S931" dest="S"/>
+            <enum src="T961" dest="T"/>
+            <enum src="F529" dest="00"/>
+        </system>
+    </enums>
+    <enums name="DUTY_CODE">
+        <system name="010208">
+            <enum src="01" dest="0301"/>
+            <enum src="08" dest="0302"/>
+            <enum src="02" dest="0303"/>
+            <enum src="04" dest="0304"/>
+            <enum src="05" dest="0305"/>
+            <enum src="06" dest="0306"/>
+            <enum src="07" dest="0307"/>
+            <enum src="10" dest="0308"/>
+            <enum src="11" dest="0309"/>
+        </system>
+    </enums>
+    <enums name="FOLK_CODE">
+        <system name="010208">
+           <enum src="01" dest="汉"/>
+           <enum src="02" dest="蒙古"/>
+           <enum src="03" dest="回"/>
+           <enum src="04" dest="藏"/>
+           <enum src="05" dest="维吾尔"/>
+           <enum src="06" dest="苗"/>
+           <enum src="07" dest="彝"/>
+           <enum src="08" dest="壮"/>
+           <enum src="09" dest="布依"/>
+           <enum src="10" dest="朝鲜"/>
+           <enum src="11" dest="满"/>
+           <enum src="12" dest="侗"/>
+           <enum src="13" dest="瑶"/>
+           <enum src="14" dest="白"/>
+           <enum src="15" dest="土家"/>
+           <enum src="16" dest="哈尼"/>
+           <enum src="17" dest="哈萨克"/>
+           <enum src="18" dest="傣"/>
+           <enum src="19" dest="黎"/>
+           <enum src="20" dest="傈僳"/>
+           <enum src="22" dest="畲"/>
+           <enum src="23" dest="高山"/>
+           <enum src="24" dest="拉祜"/>
+           <enum src="25" dest="水"/>
+           <enum src="26" dest="东乡"/>
+           <enum src="27" dest="纳西"/>
+           <enum src="28" dest="景颇"/>
+           <enum src="29" dest="柯尔克孜"/>
+           <enum src="30" dest="土"/>
+           <enum src="31" dest="达斡尔"/>
+           <enum src="32" dest="仫佬"/>
+           <enum src="33" dest="羌"/>
+           <enum src="34" dest="布朗"/>
+           <enum src="35" dest="撒拉"/>
+           <enum src="36" dest="毛南"/>
+           <enum src="37" dest="仡佬"/>
+           <enum src="38" dest="锡伯"/>
+           <enum src="39" dest="阿昌"/>
+           <enum src="40" dest="普米"/>
+           <enum src="41" dest="塔吉克"/>
+           <enum src="42" dest="怒"/>
+           <enum src="43" dest="乌孜别克"/>
+           <enum src="44" dest="俄罗斯"/>
+           <enum src="45" dest="鄂温克"/>
+           <enum src="46" dest="德昂"/>
+           <enum src="47" dest="保安"/>
+           <enum src="48" dest="裕固"/>
+           <enum src="49" dest="京"/>
+           <enum src="50" dest="塔塔尔"/>
+           <enum src="51" dest="独龙"/>
+           <enum src="52" dest="鄂伦春"/>
+           <enum src="53" dest="赫哲"/>
+           <enum src="54" dest="门巴"/>
+           <enum src="55" dest="珞巴"/>
+           <enum src="56" dest="基诺"/>
+           <enum src="57" dest="其它"/>
+           <enum src="58" dest="外国血统中国籍人士"/>
+           <enum src="21" dest="佤"/>
+        </system>
+    </enums>
+</CodeConvert>

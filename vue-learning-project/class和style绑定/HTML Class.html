@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定HTML Class</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div class="static" :class="{ active: isActive,'text-danger': hasError }" id="cl">
+    对象语法写法:内联样式在模板里
+</div>
+<div class="static" :class="classObject" id="c2">
+    对象语法写法:内联样式不在模板里,在对象里
+</div>
+<hr>
+<div class="static" :class="[activeClass,errorClass]" id="c3">
+    数组写法
+</div>
+<hr>
+<p1>用在组件上,学了组件再回头来看这个</p1>
+
+</body>
+<script>
+    var vm = new Vue({
+        el : "#cl",
+        data: {
+            isActive: true,
+            hasError: true
+        }
+    });
+
+    var vm1 = new Vue({
+        el : "#c2",
+        data: {
+            isActive: true,
+            error: false
+        },
+        computed:{
+            classObject:function () {
+                return{
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal'
+                }
+            }
+        }
+    });
+
+    var vm2 = new Vue({
+        el : "#c3",
+        data: {
+            activeClass: "active",
+            errorClass: "text-danger"
+        }
+    })
+
+
+</script>
+</html>

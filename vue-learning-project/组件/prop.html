@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prop 的练习HTML</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div>
+    <h3>
+        Prop 是你可以在组件上注册的一些自定义 attribute。
+    </h3>
+</div>
+<hr>
+<div>
+
+
+</div>
+
+</body>
+<script type="text/javascript">
+Vue.component("blog-post",{
+    props:{
+        title: {
+            // 必填的字符串
+            type: String,
+            required: true
+        },
+        likes: {
+            // 带有默认值的数字
+            type: Number,
+            default: 100
+        },
+        isPublished: Boolean,
+        componentId: Array,
+        author: {
+            // 带有默认值的对象,必须从function中获取
+            type: Object,
+            default: function () {
+                return{
+                    message:'hello'
+                }
+
+            }
+        },
+        callbacks: Function,
+        contactsPromise: Promise,
+        time: Date,
+
+        //自定义验证函数
+        validatorFunction:{
+            validator: function (value) {
+                // 这个值必须匹配下列字符串中的一个
+                return ['success', 'warning', 'danger'].indexOf(value) !== -1
+            }
+        }
+    },
+    template:``
+}
+);
+
+
+
+</script>
+</html>

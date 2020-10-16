@@ -1,0 +1,324 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   <generated>
+
+package com.gc.pattern.proxy;
+
+import java.lang.reflect.InvocationTargetException;
+import org.springframework.cglib.core.Signature;
+import org.springframework.cglib.reflect.FastClass;
+
+// Referenced classes of package com.gc.pattern.proxy:
+//            Woman
+
+public class Woman$$FastClassByCGLIB$$a354017f extends FastClass
+{
+
+    public int getIndex(Signature signature)
+    {
+        String s = signature.toString();
+        s;
+        s.hashCode();
+        JVM INSTR lookupswitch 6: default 128
+    //                   -1310345955: 68
+    //                   -896787293: 78
+    //                   1192015562: 88
+    //                   1826985398: 98
+    //                   1913648695: 108
+    //                   1984935277: 118;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
+_L2:
+        "eat()V";
+        equals();
+        JVM INSTR ifeq 129;
+           goto _L8 _L9
+_L9:
+        break MISSING_BLOCK_LABEL_129;
+_L8:
+        return 1;
+_L3:
+        "son()V";
+        equals();
+        JVM INSTR ifeq 129;
+           goto _L10 _L11
+_L11:
+        break MISSING_BLOCK_LABEL_129;
+_L10:
+        return 2;
+_L4:
+        "findLove()V";
+        equals();
+        JVM INSTR ifeq 129;
+           goto _L12 _L13
+_L13:
+        break MISSING_BLOCK_LABEL_129;
+_L12:
+        return 0;
+_L5:
+        "equals(Ljava/lang/Object;)Z";
+        equals();
+        JVM INSTR ifeq 129;
+           goto _L14 _L15
+_L15:
+        break MISSING_BLOCK_LABEL_129;
+_L14:
+        return 3;
+_L6:
+        "toString()Ljava/lang/String;";
+        equals();
+        JVM INSTR ifeq 129;
+           goto _L16 _L17
+_L17:
+        break MISSING_BLOCK_LABEL_129;
+_L16:
+        return 4;
+_L7:
+        "hashCode()I";
+        equals();
+        JVM INSTR ifeq 129;
+           goto _L18 _L19
+_L19:
+        break MISSING_BLOCK_LABEL_129;
+_L18:
+        return 5;
+_L1:
+        JVM INSTR pop ;
+        return -1;
+    }
+
+    public int getIndex(String s, Class aclass[])
+    {
+        s;
+        aclass;
+        JVM INSTR swap ;
+        JVM INSTR dup ;
+        hashCode();
+        JVM INSTR lookupswitch 6: default 290
+    //                   -1776922004: 64
+    //                   -1295482945: 98
+    //                   -679433013: 148
+    //                   100184: 182
+    //                   114066: 218
+    //                   147696667: 254;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
+_L2:
+        "toString";
+        equals();
+        JVM INSTR ifeq 291;
+           goto _L8 _L9
+_L9:
+        break MISSING_BLOCK_LABEL_294;
+_L8:
+        JVM INSTR dup ;
+        JVM INSTR arraylength .length;
+        JVM INSTR tableswitch 0 0: default 95
+    //                   0 92;
+           goto _L10 _L11
+_L10:
+        break MISSING_BLOCK_LABEL_294;
+_L11:
+        JVM INSTR pop ;
+        return 4;
+_L3:
+        "equals";
+        equals();
+        JVM INSTR ifeq 291;
+           goto _L12 _L13
+_L13:
+        break MISSING_BLOCK_LABEL_294;
+_L12:
+        JVM INSTR dup ;
+        JVM INSTR arraylength .length;
+        JVM INSTR tableswitch 1 1: default 145
+    //                   1 128;
+           goto _L14 _L15
+_L14:
+        break MISSING_BLOCK_LABEL_294;
+_L15:
+        JVM INSTR dup ;
+        0;
+        JVM INSTR aaload ;
+        getName();
+        "java.lang.Object";
+        equals();
+        JVM INSTR ifeq 294;
+           goto _L16 _L17
+_L17:
+        break MISSING_BLOCK_LABEL_294;
+_L16:
+        JVM INSTR pop ;
+        return 3;
+_L4:
+        "findLove";
+        equals();
+        JVM INSTR ifeq 291;
+           goto _L18 _L19
+_L19:
+        break MISSING_BLOCK_LABEL_294;
+_L18:
+        JVM INSTR dup ;
+        JVM INSTR arraylength .length;
+        JVM INSTR tableswitch 0 0: default 179
+    //                   0 176;
+           goto _L20 _L21
+_L20:
+        break MISSING_BLOCK_LABEL_294;
+_L21:
+        JVM INSTR pop ;
+        return 0;
+_L5:
+        "eat";
+        equals();
+        JVM INSTR ifeq 291;
+           goto _L22 _L23
+_L23:
+        break MISSING_BLOCK_LABEL_294;
+_L22:
+        JVM INSTR dup ;
+        JVM INSTR arraylength .length;
+        JVM INSTR tableswitch 0 0: default 215
+    //                   0 212;
+           goto _L24 _L25
+_L24:
+        break MISSING_BLOCK_LABEL_294;
+_L25:
+        JVM INSTR pop ;
+        return 1;
+_L6:
+        "son";
+        equals();
+        JVM INSTR ifeq 291;
+           goto _L26 _L27
+_L27:
+        break MISSING_BLOCK_LABEL_294;
+_L26:
+        JVM INSTR dup ;
+        JVM INSTR arraylength .length;
+        JVM INSTR tableswitch 0 0: default 251
+    //                   0 248;
+           goto _L28 _L29
+_L28:
+        break MISSING_BLOCK_LABEL_294;
+_L29:
+        JVM INSTR pop ;
+        return 2;
+_L7:
+        "hashCode";
+        equals();
+        JVM INSTR ifeq 291;
+           goto _L30 _L31
+_L31:
+        break MISSING_BLOCK_LABEL_294;
+_L30:
+        JVM INSTR dup ;
+        JVM INSTR arraylength .length;
+        JVM INSTR tableswitch 0 0: default 287
+    //                   0 284;
+           goto _L32 _L33
+_L32:
+        break MISSING_BLOCK_LABEL_294;
+_L33:
+        JVM INSTR pop ;
+        return 5;
+_L1:
+        JVM INSTR pop ;
+        JVM INSTR pop ;
+        return -1;
+    }
+
+    public int getIndex(Class aclass[])
+    {
+        aclass;
+        aclass.length;
+        JVM INSTR tableswitch 0 0: default 23
+    //                   0 20;
+           goto _L1 _L2
+_L2:
+        JVM INSTR pop ;
+        return 0;
+_L1:
+        JVM INSTR pop ;
+        return -1;
+    }
+
+    public Object invoke(int i, Object obj, Object aobj[])
+        throws InvocationTargetException
+    {
+        (Woman)obj;
+        i;
+        JVM INSTR tableswitch 0 5: default 90
+    //                   0 44
+    //                   1 49
+    //                   2 54
+    //                   3 59
+    //                   4 74
+    //                   5 78;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
+_L2:
+        findLove();
+        return null;
+_L3:
+        eat();
+        return null;
+_L4:
+        Woman.son();
+        return null;
+_L5:
+        aobj[0];
+        equals();
+        JVM INSTR new #75  <Class Boolean>;
+        JVM INSTR dup_x1 ;
+        JVM INSTR swap ;
+        Boolean();
+        return;
+_L6:
+        toString();
+        return;
+_L7:
+        hashCode();
+        JVM INSTR new #82  <Class Integer>;
+        JVM INSTR dup_x1 ;
+        JVM INSTR swap ;
+        Integer();
+        return;
+        JVM INSTR new #63  <Class InvocationTargetException>;
+        JVM INSTR dup_x1 ;
+        JVM INSTR swap ;
+        InvocationTargetException();
+        throw ;
+_L1:
+        throw new IllegalArgumentException("Cannot find matching method/constructor");
+    }
+
+    public Object newInstance(int i, Object aobj[])
+        throws InvocationTargetException
+    {
+        JVM INSTR new #65  <Class Woman>;
+        JVM INSTR dup ;
+        i;
+        JVM INSTR tableswitch 0 0: default 28
+    //                   0 24;
+           goto _L1 _L2
+_L2:
+        Woman();
+        return;
+        JVM INSTR new #63  <Class InvocationTargetException>;
+        JVM INSTR dup_x1 ;
+        JVM INSTR swap ;
+        InvocationTargetException();
+        throw ;
+_L1:
+        throw new IllegalArgumentException("Cannot find matching method/constructor");
+    }
+
+    public int getMaxIndex()
+    {
+        return 5;
+    }
+
+    public Woman$$FastClassByCGLIB$$a354017f(Class class1)
+    {
+        super(class1);
+    }
+}

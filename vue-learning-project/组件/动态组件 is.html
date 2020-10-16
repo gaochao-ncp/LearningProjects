@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态组件 keep-alive</title>
+    <script src="../vue.js"></script>
+    <link ref="stylesheet" type="text/css" href="../style.css">
+    <style>
+        .tab-button {
+            padding: 6px 10px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background: #f0f0f0;
+            margin-bottom: -1px;
+            margin-right: -1px;
+        }
+        .tab-button:hover {
+            background: #e0e0e0;
+        }
+        .tab-button.active {
+            background: #e0e0e0;
+        }
+        .tab {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="dynamic-component-demo" class="demo">
+    <button v-for="tab in tabs"
+            :key="tab"
+            :class="['tab-button',{active:currentTab===tab}]"
+            @click="currentTab = tab">
+        {{tab}}
+    </button>
+    <component :is="currentTabComponent" class="tab"></component>
+</div>
+
+<hr>
+<div id="app">
+    <button v-for="place in places"
+            :key="place"
+            :class="['tab-button',{active:xx===place}]"
+            @click="changePlaces(place)">
+        {{place}}
+    </button>
+    <component :is="xx" class="tab"></component>
+
+</div>
+
+</body>
+<script>
+    Vue.component("tab-home",{
+        template: "<div>home component</div>"
+    });
+    Vue.component("tab-post",{
+        template: "<div>post component</div>"
+    });
+    Vue.component("tab-archive",{
+        template: "<div>archive component</div>"
+    });
+
+    var vm1 =  new Vue({
+        el:"#dynamic-component-demo",
+        data:{
+            currentTab: "home",
+            tabs: ["home","post","archive"]
+        },
+        computed:{
+            currentTabComponent:function () {
+                return "tab-"+this.currentTab;
+            }
+        }
+    });
+
+
+    var vm2 =  new Vue({
+        el:"#app",
+        data: {
+            xx:"",
+            places:["home-component","school-component","work-component"]
+        },
+        components: {
+            "home-component": { template: "<div>home</div>"},
+            "school-component": {template: `<div>school</div>`},
+            "work-component": {template: `<div>work</div>`}
+        },
+        methods:{
+            changePlaces:function (value) {
+                this.xx=value;
+            }
+        }
+
+    });
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件的关系</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <div>
+
+    </div>
+    <div>
+        <!--当没有注册该组件的时候无法使用-->
+        <!--<vm-1></vm-1>-->
+        <vm-2></vm-2>
+    </div>
+
+</div>
+</body>
+<script>
+    //注册第一个组件:子组件
+    const vm1 = Vue.extend({
+        template:`
+            <div>这是组件1</div>
+        `
+    });
+
+    //注册第二个组件:父组件
+    const vm2 = Vue.extend({
+        template:`
+            <div>
+                这是组件2
+                <vm-child></vm-child>
+            </div>
+        `,
+        components:{
+            "vm-child":vm1
+        }
+    });
+
+    //root:根组件,对这个vue对象来说vm1,vm2是子组件.
+    new Vue({
+        template:`
+        <div>vue对象中替换模板</div>
+        `,
+        el:"#app",
+        components:{
+            // "vm-1":vm1,
+            "vm-2":vm2
+        }
+    });
+</script>
+</html>

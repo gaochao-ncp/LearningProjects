@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件基础</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+<div id="components-demo">
+    <div>
+        <h3>data 必须是一个函数:每个实例可以维护一份被返回对象的独立的拷贝.</h3>
+    </div>
+    <div>
+        <button-counter></button-counter>
+        <br>
+        <button-counter></button-counter>
+        <br>
+        <button-counter></button-counter>
+    </div>
+    <hr>
+    <div>
+        <h3>#通过 Prop 向子组件传递数据</h3>
+    </div>
+    <div>
+        <!--通过这样绑定就直接在template里面写需要显示的值就行了-->
+        <blog-post v-for="post in posts" :key="post.id" :post="post"></blog-post>
+    </div>
+    <hr>
+    <div>
+        <h3>#监听子组件事件:比较复杂,没太看明白文档的案例</h3>
+    </div>
+    <div :style="{fontsize:postFontSize+'em'}">
+        <blog-post-person v-for="post in posts" @enlarge-text="postFontSize+=0.1" :post="post"></blog-post-person>
+    </div>
+</div>
+<hr>
+<div id="test-2">
+    <div>
+        <h3>#通过插槽分发内容</h3>
+    </div>
+    <div>
+        <alert-box context="{{context}}">{{context}}</alert-box>
+    </div>
+
+</div>
+
+</body>
+<script type="text/javascript">
+//定义一个 button-counter 的新组件
+//全局注册
+Vue.component("button-counter",{
+    data:function () {
+        return{
+            count:0
+        }
+    },
+    template:'<button @click="count++">You clicked me {{ count }} times.</button>'
+});
+
+//定义blog-post组件
+Vue.component("blog-post",{
+    props: ["post"],
+    template: "<div class='blog-post'>" +
+        "<h3>{{post.title}}</h3>" +
+        "<div v-html='post.content'></div>" +
+        "</div>"
+
+});
+
+//监听子组件事件
+Vue.component("blog-post-person",{
+    props: ["post"],
+    template: "<div class='blog-post-person'>" +
+        "<h3>{{post.title}}</h3>" +
+        "<button v-on:click=\"$emit('enlarge-text')\">Enlarge text</button>" +
+        "</div>"
+
+});
+
+//插槽
+Vue.component("alertBox",{
+    template: `
+    <div class="demo-alert-box">
+      <strong>Error!</strong>
+      <slot></slot>
+    </div>
+  `
+});
+
+var vm1 = new Vue({
+    el:"#components-demo",
+    data:{
+        posts:[
+            { id: 1, title: 'My journey with Vue' ,content:'孙悟空'},
+            { id: 2, title: 'Blogging with Vue' ,content:'猪八戒'},
+            { id: 3, title: 'Why Vue is so fun' ,content:'沙悟净'}
+        ],
+        postFontSize:1
+
+    }
+});
+
+var vm2 = new Vue({
+    el:"#test-2",
+    data:{
+        context:"Something bad happened."
+    }
+});
+
+
+</script>
+</html>

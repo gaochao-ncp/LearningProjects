@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单输入v-model绑定</title>
+    <script src="../vue.js">    </script>
+</head>
+
+<!--
+    v-model 会忽略所有表单元素的 value、checked、selected attribute 的初始值而总是将 Vue 实例的数据作为数据来源。
+    你应该通过 JavaScript 在组件的 data 选项中声明初始值。
+    v-model 在内部为不同的输入元素使用不同的 property 并抛出不同的事件：
+    text 和 textarea 元素使用 value property 和 input 事件；
+    checkbox 和 radio 使用 checked property 和 change 事件；
+    select 字段将 value 作为 prop 并将 change 作为事件。
+-->
+<body>
+<div id="test">
+    <div>
+        <h1>#文本</h1>
+    </div>
+    <div>
+        <input v-model="message" placeholder="edit me">
+        <p>message is {{message}}</p>
+    </div>
+    <hr>
+    <div>
+        <h1>#多行文本</h1>
+    </div>
+    <div>
+        <textarea v-model="multipleMessage" placeholder="add multiple lines"></textarea>
+        <br>
+        <span>multiple is:</span>
+        <p style="white-space: pre-line;"> {{multipleMessage}}</p>
+    </div>
+    <hr>
+    <div>
+        <h1>#复选框</h1>
+    </div>
+    <div>
+        <input type="checkbox" id="checkbox" value="checkBox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
+        <br>
+        <input type="checkbox" id="sun" value="孙悟空" v-model="checkedNames">
+        <label for="sun">孙悟空</label>
+        <br>
+        <input type="checkbox" id="zhu" value="猪八戒" v-model="checkedNames">
+        <label for="zhu">猪八戒</label>
+        <br>
+        <input type="checkbox" id="sha" value="沙和尚" v-model="checkedNames">
+        <label for="sha">沙和尚</label>
+        <br>
+        <span>
+            checkedNams:{{checkedNames}}
+        </span>
+    </div>
+    <div>
+        <h1>#单选框</h1>
+    </div>
+    <div>
+        <input type="radio" id="one" :value="radio.one" v-model="picked">
+<!--        <label for="one">One</label>-->
+        <label for="one">{{radio.one}}</label>
+        <br>
+        <input type="radio" id="two" :value="radio.two" v-model="picked">
+<!--        <label for="two">Two</label>-->
+        <label for="two">{{radio.two}}</label>
+        <br>
+        <span> radio {{picked}}</span>
+    </div>
+    <div>
+        <h1>#下拉选择框,使用v-for遍历</h1>
+    </div>
+    <div>
+        <select multiple style="width: 50px;"  v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">{{option.text}}</option>
+        </select>
+        <br>
+        <span>Selected values: {{ selected }}</span>
+    </div>
+
+
+</div>
+</body>
+<script>
+
+    var vm = new Vue({
+        el:"#test",
+        data:function () {
+            return {
+                One:"One",
+                message:"",//文本
+                multipleMessage:"",//多行文本
+                checked:false, //单个复选框
+                checkedNames:[], //多个复选框
+                picked:"",//单选
+                radio:{
+                    one:"One",
+                    two:"Two"
+                },
+                selected:[],//下拉框
+                options:[
+                    {text:"One",value:"A"},
+                    {text:"Two",value:"B"},
+                    {text:"Three",value:"C"},
+                ]
+            }
+        }
+
+    });
+
+
+</script>
+</html>

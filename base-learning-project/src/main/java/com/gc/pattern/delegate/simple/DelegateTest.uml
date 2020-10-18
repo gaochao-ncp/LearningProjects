@@ -8,8 +8,8 @@
     <node x="0.0" y="110.0">com.gc.pattern.delegate.simple.EmployeeB</node>
     <node x="346.0" y="110.0">com.gc.pattern.delegate.simple.EmployeeC</node>
     <node x="253.0" y="330.0">com.gc.pattern.delegate.simple.Boss</node>
-    <node x="240.0" y="220.0">com.gc.pattern.delegate.simple.Leader</node>
     <node x="252.0" y="486.0">com.gc.pattern.delegate.simple.DelegateTest</node>
+    <node x="240.0" y="220.0">com.gc.pattern.delegate.simple.Leader</node>
   </nodes>
   <notes />
   <edges>
@@ -33,9 +33,7 @@
     </edge>
   </edges>
   <settings layout="Hierarchic Group" zoom="1.0" x="249.5" y="273.0" />
-  <SelectedNodes>
-    <node>com.gc.pattern.delegate.simple.DelegateTest</node>
-  </SelectedNodes>
+  <SelectedNodes />
   <Categories>
     <Category>Methods</Category>
   </Categories>

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class AspectCustom {
 
   /**
-   * 切点
+   * 切入点
    * 抽取出来的公共切点
    * execution(public * *(..)) :拦截任意公共方法
    * 表达方式:

@@ -7,19 +7,18 @@
 - 6.合成复用原则:少用继承,尽量多使用组合(has-a)/聚合(contains-a)
 - 7.里式替换原则:子类可以拓展父类的功能,但是不能覆盖父类原有的功能.
 
-
 ### 设计模式中英对照表
 | Chinese          		| English   						|  定义	|
-| :----:   			| :----:  							| :----:|
+| :----:   			    | :----:  							| :----:|
 |1.工厂方法模式			|Factory Method Pattern				| |
 |2.抽象工厂模式			|Abstract Factory Pattern   		| |
 |3.建造者模式			|Builder Pattern            		| |
 |4.原型模式				|Prototype Pattern          		| |
-|5.单例模式				|Singleton Pattern          		||
+|5.单例模式				|Singleton Pattern          		| |
 |6.适配器模式			|Adapter Pattern            		||
 |7.桥梁模式/桥接模式	    |Bridge Pattern         			||
 |8.组合模式				|Composite Pattern          		||
-|9.装饰模式				Decorator Pattern           		||
+|9.装饰模式				|Decorator Pattern           		||
 |10.门面模式/外观模式	    |Facade Pattern         			||
 |11.享元模式			    |Flyweight Pattern					||
 |12.代理模式			    |Proxy pattern          			||
@@ -82,41 +81,26 @@
 ***适配器和策略模式***
 在适配业务复杂的情况下,利用策略模式优化动态适配逻辑
 
-
-
-
 ### Spring中常用的设计模式对比
+|设计模式|一句话归纳|举例|
+|----|----|----|
+|工厂模式（Factory）    | 只对结果负责，封装创建过程。 						|BeanFactory、Calendar |			
+|单例模式（Singleton）  | 保证独一无二。 									|ApplicationContext、Calendar |
+|原型模式（Prototype）  | 拔一根猴毛，吹出千万个。 							|ArrayList、PrototypeBean |
+|代理模式（Proxy）      | 找人办事，增强职责。 								|ProxyFactoryBean、JdkDynamicAopProxy、 CglibAopProxy |
+|委派模式（Delegate）   | 干活算你的（普通员工），功劳 算我的（项目经理）。 |DispatcherServlet、 BeanDefinitionParserDelegate |
+|策略模式（Strategy）   | 用户选择，结果统一。 								|InstantiationStrategy |
+|模板模式（Template）   | 流程标准化，自己实现定制。 						|JdbcTemplate、HttpServlet |
+|适配器模式（Adapter）  | 兼容转换头。 										|AdvisorAdapter、HandlerAdapter |
+|装饰器模式（Decorator）| 包装，同宗同源。 									|BufferedReader、InputStream、 OutputStream、 HttpHeadResponseDecorator |
+|观察者模式（Observer） | 任务完成时通知。 									|ContextLoaderListener|
+
 
 ### Spring中编程思想总结
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+|Spring思想|应用场景(特点)|一句话归纳|
+|----|----|----|
+|OOP|面向对象编程:用程序来描述生活中的一切事物.|封装,继承,多态|
+|BOP|面向Bean编程:是一种代码管理理念,Spring中的一切都是从Bean开始|一切从Bean开始|
+|AOP|面向切面编程:找出多个Bean中有共性的部分,开发时抽离,运行时合并,即面向规则编程|解耦,专人做专事|
+|IOC|控制反转:创建对象的控制权反转,Spring通过BeanFactory创建对象,并且保存在IOC容器中|转交创建对象的控制权给Spring|
+|DI/DL|依赖注入/依赖查找:Spring不仅创建对象,还保存对象和对象之间的关系.注入即赋值:1.构造方法 2.set方法 3.反射(强吻)|给对象赋值|

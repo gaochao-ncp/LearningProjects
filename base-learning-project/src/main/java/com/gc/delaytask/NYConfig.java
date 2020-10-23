@@ -15,10 +15,10 @@ public class NYConfig {
 
   static {
     roundTime.put(1,0);
-    roundTime.put(2,1);
-    roundTime.put(3,1);
-    roundTime.put(4,2);
-    roundTime.put(5,2);
+    roundTime.put(2,10);
+    roundTime.put(3,10);
+    roundTime.put(4,10);
+    roundTime.put(5,10);
   }
 
   /**获取最大重发次数**/

@@ -1,5 +1,7 @@
 package com.gc.delaytask;
 
+import cn.hutool.core.date.DateUtil;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -87,5 +89,18 @@ public class NotifyRecord implements Serializable {
 
   public void setStop(boolean stop) {
     this.stop = stop;
+  }
+
+  @Override
+  public String toString() {
+    return "延迟记录{" +
+            "任务ID='" + taskId + '\'' +
+            ", 创建时间=" + DateUtil.format(createTime,"yyyy-mm-dd hh:mm:ss") +
+            ", 执行次数=" + version +
+            ", 已发通知次数=" + notifyTimes +
+            ", 上次发送的通知时间=" + DateUtil.format(lastNotifyTime,"yyyy-mm-dd hh:mm:ss") +
+            ", maxLimitTimes=" + maxLimitTimes +
+            ", 是否暂停=" + stop +
+            '}';
   }
 }

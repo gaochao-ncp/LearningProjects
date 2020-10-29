@@ -3,6 +3,7 @@ package com.gc.delaytask;
 import cn.hutool.core.date.DateUtil;
 
 import java.util.Date;
+import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -17,70 +18,53 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class NotifyStart {
 
   /**定义轮询延迟任务队列**/
-  public static volatile DelayQueue<AbstractNotifyTask> tasks = new DelayQueue<AbstractNotifyTask>() ;
+  public static final DelayQueue<AbstractNotifyTask> tasks = new DelayQueue<AbstractNotifyTask>() ;
   /**线程池**/
-  public static ThreadPoolExecutor executorPool = new ThreadPoolExecutor(
-          20,
-          300,
-          0L,
-          TimeUnit.MILLISECONDS,
-          new LinkedBlockingQueue<Runnable>(1024),
-          new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-              return new Thread(r);
-            }
-          },
-          new ThreadPoolExecutor.AbortPolicy());
+  public static ThreadPoolExecutor executorPool = Start.EXECUTOR_POOL;
 
-  public static AtomicInteger count = new AtomicInteger(0) ;
-  public static CountDownLatch countDownLatch = new CountDownLatch(1);
+  //public static AtomicInteger count = new AtomicInteger(0) ;
+  public CountDownLatch countDownLatch = new CountDownLatch(1);
+
+  private NotifyStart(){}
+
+  public static NotifyStart start(){
+    return Start.INSTANCE_START;
+  }
 
   public static void main(String[] args) {
     System.out.println("====== delay task start ======");
     startInitFromDB();
-    startThread();
-    try {
-      countDownLatch.await();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
+//    try {
+//      countDownLatch.await();
+//    } catch (InterruptedException e) {
+//      e.printStackTrace();
+//    }
   }
 
-  public static void start(int count){
-    CountDownLatch stop = new CountDownLatch(count);
+  public void run(){
     startInitFromDB();
-    startThread();
-    try {
-      stop.await();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }finally {
-      executorPool.shutdown();
-    }
-  }
-
-
-  /**开始执行任务**/
-  private static void startThread() {
     try {
       while(true) {
+        Map<Thread, StackTraceElement[]> map = Thread.getAllStackTraces();
         //如果当前活动线程等于最大线程,不执行任务逻辑;此处判断很重要，避免浪费资源，当有线程空闲时才执行任务
         if(executorPool.getActiveCount() < executorPool.getMaximumPoolSize() ) {
           //获取任务队列中第一个任务
           final AbstractNotifyTask task = tasks.poll();
           if(task != null) {
-//            executorPool.execute(()-> {
-                System.out.println("线程活动数:"+executorPool.getActiveCount());
-                //将任务从队列中移除
-                tasks.remove(task);
-                //执行任务
-                task.run();
-//            });
+            System.out.println("当前存活线程数量:" + map.size()+";线程活动数:"+executorPool.getActiveCount());
+            //将任务从队列中移除
+            tasks.remove(task);
+            executorPool.execute(task);
           }
         }
       }
     }catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    try {
+      countDownLatch.wait();
+    } catch (InterruptedException e) {
       e.printStackTrace();
     }
   }
@@ -112,10 +96,10 @@ public class NotifyStart {
     // 通知次数小于最大次数 且 停止标志为false才继续执行
     if( (notifyTimes < maxLimitTime) && !notifyRecord.isStop()) {
       //获取发送任务的时间机制
-      Integer nextTime = NYConfig.roundTime.get(notifyTimes+1) ;
-      // 下一次发送任务的时间(距离上一次发送间隔多少[nextTime]分钟在这里进行逻辑设置)
-      time += Utils.getExecTime(nextTime,Utils.SECONDS) ;
-      notifyRecord.setLastNotifyTime(new Date(time));
+//      Integer nextTime = NYConfig.roundTime.get(notifyTimes+1) ;
+//      // 下一次发送任务的时间(距离上一次发送间隔多少[nextTime]分钟在这里进行逻辑设置)
+//      time += Utils.getExecTime(nextTime,Utils.SECONDS) ;
+//      notifyRecord.setLastNotifyTime(new Date(time));
       //更新执行时间
       task.setExecuteTime(notifyRecord);
       System.out.println("下次执行时间:"+ new Date(task.executeTime) +";ID:"+task.getNotifyParam().getId());
@@ -126,5 +110,16 @@ public class NotifyStart {
   }
 
 
+  private static class Start{
+    private static NotifyStart INSTANCE_START = new NotifyStart();
+    private static ThreadPoolExecutor EXECUTOR_POOL = new ThreadPoolExecutor(
+            20,
+            300,
+            0L,
+            TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<Runnable>(1024),
+            (r)-> new Thread(r),
+            new ThreadPoolExecutor.AbortPolicy());
+  }
 
 }

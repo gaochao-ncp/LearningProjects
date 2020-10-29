@@ -1,4 +1,4 @@
-package com.gc.pattern.factory;
+package com.gc.pattern.factory.common;
 
 /**
  * php视频

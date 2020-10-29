@@ -27,11 +27,11 @@ public class Woman$$EnhancerByCGLIB$$37c31090 extends Woman
         Method amethod1[];
         CGLIB$THREAD_CALLBACKS = new ThreadLocal();
         CGLIB$emptyArgs = new Object[0];
-        Class class1 = Class.forName("com.gc.pattern.proxy.Woman$$EnhancerByCGLIB$$37c31090");
+        Class class1 = Class.forName("com.gc.pattern.proxy.common.Woman$$EnhancerByCGLIB$$37c31090");
         Class class2;
         amethod = ReflectUtils.findMethods(new String[] {
             "findLove", "()V"
-        }, (class2 = Class.forName("com.gc.pattern.proxy.Woman")).getDeclaredMethods());
+        }, (class2 = Class.forName("com.gc.pattern.proxy.common.Woman")).getDeclaredMethods());
         Method[] _tmp = amethod;
         CGLIB$findLove$0$Method = amethod[0];
         CGLIB$findLove$0$Proxy = MethodProxy.create(class2, class1, "()V", "findLove", "CGLIB$findLove$0");

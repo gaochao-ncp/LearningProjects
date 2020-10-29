@@ -1,7 +1,7 @@
 package com.gc.pattern.factory.method;
 
-import com.gc.pattern.factory.ICourse;
-import com.gc.pattern.factory.JavaCourse;
+import com.gc.pattern.factory.common.ICourse;
+import com.gc.pattern.factory.common.JavaCourse;
 
 /**
  * @author gaochao

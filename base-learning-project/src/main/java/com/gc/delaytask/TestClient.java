@@ -35,9 +35,11 @@ public class TestClient {
     }
 
     //异步执行
-    NotifyStart.executorPool.execute(()->{
-      NotifyStart.start(NotifyStart.tasks.size());
-    });
+//    NotifyStart.executorPool.execute(()->{
+//
+//    });
+
+    NotifyStart.start().run();
 
     System.out.println("end task... ");
 

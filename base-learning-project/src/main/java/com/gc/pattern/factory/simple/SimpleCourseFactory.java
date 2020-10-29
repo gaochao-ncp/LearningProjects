@@ -1,9 +1,9 @@
 package com.gc.pattern.factory.simple;
 
-import com.gc.pattern.factory.ICourse;
-import com.gc.pattern.factory.JavaCourse;
-import com.gc.pattern.factory.PhpCourse;
-import com.gc.pattern.factory.PythonCourse;
+import com.gc.pattern.factory.common.ICourse;
+import com.gc.pattern.factory.common.JavaCourse;
+import com.gc.pattern.factory.common.PhpCourse;
+import com.gc.pattern.factory.common.PythonCourse;
 
 /**
  * 简单课程工厂
@@ -64,7 +64,7 @@ public class SimpleCourseFactory {
   public static void main(String[] args) {
     ICourse java = SimpleCourseFactory.creatCourse("java");
     java.record();
-    ICourse php = SimpleCourseFactory.creatCourseByFullClassName("com.gc.pattern.factory.PhpCourse");
+    ICourse php = SimpleCourseFactory.creatCourseByFullClassName("com.gc.pattern.factory.common.PhpCourse");
     php.record();
     ICourse python = SimpleCourseFactory.creatCourse(PythonCourse.class);
     python.record();

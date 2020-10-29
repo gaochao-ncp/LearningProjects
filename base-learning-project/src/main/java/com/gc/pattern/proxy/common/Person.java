@@ -1,4 +1,4 @@
-package com.gc.pattern.proxy;
+package com.gc.pattern.proxy.common;
 
 /**
  * 人

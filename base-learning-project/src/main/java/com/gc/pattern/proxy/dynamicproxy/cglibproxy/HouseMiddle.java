@@ -1,6 +1,6 @@
 package com.gc.pattern.proxy.dynamicproxy.cglibproxy;
 
-import com.gc.pattern.proxy.Woman;
+import com.gc.pattern.proxy.common.Woman;
 import org.springframework.cglib.core.DebuggingClassWriter;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;

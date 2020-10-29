@@ -1,4 +1,4 @@
-package com.gc.pattern.proxy;
+package com.gc.pattern.proxy.common;
 
 /**
  * 没有实现接口的单身女性

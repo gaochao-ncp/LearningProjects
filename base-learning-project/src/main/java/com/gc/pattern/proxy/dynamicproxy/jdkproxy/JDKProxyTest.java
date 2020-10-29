@@ -1,7 +1,7 @@
 package com.gc.pattern.proxy.dynamicproxy.jdkproxy;
 
-import com.gc.pattern.proxy.Girl;
-import com.gc.pattern.proxy.Person;
+import com.gc.pattern.proxy.common.Girl;
+import com.gc.pattern.proxy.common.Person;
 
 import java.lang.reflect.InvocationTargetException;
 

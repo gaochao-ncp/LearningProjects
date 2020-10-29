@@ -1,7 +1,6 @@
 package com.gc.pattern.factory.method;
 
-import com.gc.pattern.factory.ICourse;
-import com.gc.pattern.factory.JavaCourse;
+import com.gc.pattern.factory.common.ICourse;
 
 /**
  * 超级接口:不实现逻辑,交给其子类实现

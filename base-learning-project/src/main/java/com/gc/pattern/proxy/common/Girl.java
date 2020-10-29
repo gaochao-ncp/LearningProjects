@@ -1,6 +1,4 @@
-package com.gc.pattern.proxy;
-
-import com.gc.pattern.proxy.Person;
+package com.gc.pattern.proxy.common;
 
 /**
  * 实现了 {@link Person} 接口的女孩类

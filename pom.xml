@@ -11,6 +11,7 @@
         <module>vue-learning-project</module>
         <module>framework-learning-project</module>
         <module>base-learning-project</module>
+        <module>pmp-learning-project</module>
     </modules>
     <packaging>pom</packaging>
     <description>学习项目</description>

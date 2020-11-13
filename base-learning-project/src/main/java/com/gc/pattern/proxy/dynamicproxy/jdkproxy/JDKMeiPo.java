@@ -29,7 +29,7 @@ public class JDKMeiPo implements InvocationHandler {
   @Override
   public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
     before();
-    //执行代理对象的方法:目标对象,方法参数
+    //执行代理对象的方法:目标对象,方法参数.为什么这里不能传入代理对象,因为本身就是执行代理对象的方法,传入代理对象会出现死循环
     Object invoke = method.invoke(this.target, args);
     after();
     return invoke;

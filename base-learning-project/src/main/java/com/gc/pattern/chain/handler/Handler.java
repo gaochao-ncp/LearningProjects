@@ -10,6 +10,13 @@ public abstract class Handler {
 
   private Handler next;
 
+  public static Handler getHandler(){
+    Handler h1 = new ConcreteHandler1();
+    Handler h2 = new ConcreteHandler2();
+    h1.setNext(h2);
+    return h1;
+  }
+
   public void setNext(Handler next){
     this.next=next;
   }

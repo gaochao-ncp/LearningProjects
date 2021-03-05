@@ -44,4 +44,14 @@ public class ResponsibilityChain implements IResponsibility {
     //调用当前责任对象处理方法
     currentIResponsibility.doSomething(input, this::doSomething);
   }
+
+  public static void main(String[] args) {
+    ResponsibilityChain chain = new ResponsibilityChain();
+    chain.addChain(new AResponsibility());
+    chain.addChain(new BResponsibility());
+    chain.addChain(new CResponsibility());
+
+    chain.doSomething("C",chain);
+
+  }
 }
